@@ -33,7 +33,7 @@ module.exports = {
       }
       
     } catch (error) {
-      res.redirect("/admin/login", {
+      res.redirect("/login", {
       })
     }   
   },
@@ -45,14 +45,14 @@ module.exports = {
       if(!user){
         req.flash("alertStatus", "danger");
         req.flash("alertMessage", "user tidak terdaftar!");
-        res.redirect('/admin/login');
+        res.redirect('/login');
       }
 
       const isPasswordMatch = await bycrypt.compare(password, user.password);
       if(!isPasswordMatch){
         req.flash("alertStatus", "danger");
         req.flash("alertMessage", "passord salah!");
-        res.redirect('/admin/login');
+        res.redirect('/login');
       }
       req.session.user = {
         id: user.id,
@@ -62,13 +62,13 @@ module.exports = {
      
       
     } catch (error) {
-      res.redirect('/admin/login');
+      res.redirect('/login');
     }
   },
 
   actionLogout: (req, res) => {
     req.session.destroy();
-    res.redirect('/admin/login');
+    res.redirect('/login');
   },
 
   viewDashboard: async (req, res) => {
