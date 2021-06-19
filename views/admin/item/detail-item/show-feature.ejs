@@ -50,7 +50,7 @@
                   <td><%=feature[i].qty %></td>
                   
                   <td>
-                    <img src="https://backend-adminstaycation.herokuapp.com:3000/<%= feature[i].imageUrl%>" alt="imageUrl" width="70" />
+                    <img src="https://backend-adminstaycation.herokuapp.com/<%= feature[i].imageUrl%>" alt="imageUrl" width="70" />
                   </td>
                   <td>
                       <form action="/admin/item/<%=itemId%>/feature/<%=feature[i].id %>?_method=DELETE" method="POST">
